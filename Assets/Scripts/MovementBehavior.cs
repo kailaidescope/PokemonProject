@@ -14,6 +14,7 @@ public class MovementBehavior : MonoBehaviour
     private Camera cam;
     public float RotationSpeed;
     public float flySpeed;
+    public Transform center;
 
     private void Start()
     {
@@ -40,6 +41,10 @@ public class MovementBehavior : MonoBehaviour
         flyMeter.rectTransform.sizeDelta = new Vector2(meterMaxW, meterMax * flyPower);
 
         transform.Rotate(0f, Input.GetAxis("Mouse X") * RotationSpeed, 0f);
+        if (grounded)
+        {
+            center.Rotate(-Input.GetAxis("Mouse Y") * RotationSpeed, 0f, 0f);
+        }
         if (!grounded)
         {
             transform.Rotate(-Input.GetAxis("Mouse Y") * RotationSpeed, 0f, 0f);
