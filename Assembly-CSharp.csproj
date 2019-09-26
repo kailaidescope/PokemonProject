@@ -65,11 +65,11 @@
     <Compile Include="Assets\Scripts\MovementBehavior.cs" />
     <Compile Include="Assets\Scripts\MusicController.cs" />
     <Compile Include="Assets\Scripts\OrbitPlanet.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlanetGravity.cs" />
-    <Compile Include="Assets\Scripts\PlayButton.cs" />
-    <Compile Include="Assets\Scripts\ResetButton.cs" />
     <Compile Include="Assets\Scripts\RotateArms.cs" />
     <Compile Include="Assets\Scripts\RotatePlanet.cs" />
+    <Compile Include="Assets\Scripts\TitleMenu.cs" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
