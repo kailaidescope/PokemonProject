@@ -7,10 +7,11 @@ public class PlanetGravity : MonoBehaviour
     public float strength;
     public float maxDist;
 
-    private Transform t;
     private GameObject player;
     private Vector3 forceDirection;
     private bool grounded;
+
+    public static int instances;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -30,30 +31,32 @@ public class PlanetGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.AddComponent<Rigidbody>();
+        instances++;
+        //gameObject.GetComponent<Rigidbody>().useGravity = false;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
         player = GameObject.Find("Player");
-        t = player.transform;
-        forceDirection = transform.position - t.position;
+        forceDirection = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(t.position, transform.position) < maxDist && grounded)
+        if (Vector3.Distance(transform.position, player.transform.position) < maxDist && grounded)
         {
-            forceDirection = transform.position - t.position;
-            t.parent = transform;
+            forceDirection = transform.position - player.transform.position;
+            player.transform.parent = transform;
             player.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
         }
-        else if (Vector3.Distance(t.position, transform.position) < maxDist && !grounded)
+        else if (Vector3.Distance(transform.position, player.transform.position) < maxDist && !grounded)
         {
-            forceDirection = transform.position - t.position;
-            t.parent = null;
+            forceDirection = transform.position - player.transform.position;
+            player.transform.parent = null;
             player.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
         }
         else
         {
-            t.parent = null;
+            player.transform.parent = null;
         }
-
     }
 }

@@ -10,7 +10,7 @@ public class PlanetGen : MonoBehaviour
     private PlanetGravity planetGrav;
     private OrbitPlanet orbitPlanet;
 
-    public Material[] materials = new Material[4];
+    private Material[] materials;
 
     public Material dirt;
     public Material grass;
@@ -24,7 +24,8 @@ public class PlanetGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //materials[0] = dirt;
+        materials = new Material[5];
+        materials[0] = dirt;
         materials[1] = grass;
         materials[2] = stone;
         materials[3] = sand;
@@ -34,8 +35,8 @@ public class PlanetGen : MonoBehaviour
         t = obj.transform;
         t.position = new Vector3(0f, 0f, 0f);
         transform.parent = t;
-        transform.position = new Vector3(Random.Range(60f, 300f), 0f, 0f);
-        transform.localScale = Vector3.one * Random.Range(1.5f, 5f);
+        transform.position = new Vector3(Random.Range(90f, 300f), 0f, 0f);
+        transform.localScale = Vector3.one * Random.Range(1.5f, 3.5f);
         t.localRotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
         transform.parent = null;
         Destroy(obj);
@@ -45,7 +46,7 @@ public class PlanetGen : MonoBehaviour
         planetGrav.strength = 5f;
         orbitPlanet = gameObject.GetComponent<OrbitPlanet>();
         orbitPlanet.rotationSpeed = Random.Range(0.1f, 0.2f);
-        gameObject.GetComponent<Renderer>().material = materials[1];
+        gameObject.GetComponentInChildren<Renderer>().material = materials[Random.Range(min,max)];
     }
 
     // Update is called once per frame
