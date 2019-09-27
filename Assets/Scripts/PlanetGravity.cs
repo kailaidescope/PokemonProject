@@ -31,7 +31,7 @@ public class PlanetGravity : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        t = player.GetComponent<Transform>();
+        t = player.transform;
         forceDirection = transform.position - t.position;
     }
 
@@ -41,7 +41,7 @@ public class PlanetGravity : MonoBehaviour
         if (Vector3.Distance(t.position, transform.position) < maxDist && grounded)
         {
             forceDirection = transform.position - t.position;
-            player.transform.parent = transform;
+            t.parent = transform;
             player.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
         }
         else if (Vector3.Distance(t.position, transform.position) < maxDist && !grounded)

@@ -31,14 +31,14 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         menuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         menuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -46,11 +46,6 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void OnDestroy()
-    {
-        Resume();
-    }
-
-    public void unpause()
     {
         Resume();
     }
