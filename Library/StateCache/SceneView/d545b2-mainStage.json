@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-2.8208272457122804,"y":15.042487144470215,"z":1.3897895812988282},"rotation":{"x":0.09669286757707596,"y":-0.41306066513061526,"z":0.044158123433589938,"w":0.9044786095619202},"size":6.911870002746582,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-0.06626902520656586,"y":0.8654530644416809,"z":-8.899184226989746},"rotation":{"x":0.0069903223775327209,"y":0.058363720774650577,"z":-0.00040845872717909515,"w":0.9982708692550659},"size":1.39521062374115,"orthographic":false}
+>>>>>>> parent of 629e388... Not much added
