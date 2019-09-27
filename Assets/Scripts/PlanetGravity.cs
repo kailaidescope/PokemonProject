@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PlanetGravity : MonoBehaviour
 {
-    public Transform gravSource;
     public float strength;
-    private Vector3 forceDirection;
     public float maxDist;
+
+    private Transform t;
+    private GameObject player;
+    private Vector3 forceDirection;
     private bool grounded;
 
     private void OnCollisionEnter(Collision collision)
+    {
+        grounded = true;
+    }
+
+    private void OnCollisionStay(Collision collision)
     {
         grounded = true;
     }
@@ -23,23 +30,29 @@ public class PlanetGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        forceDirection = gravSource.position - transform.position;
+        player = GameObject.Find("Player");
+        t = player.GetComponent<Transform>();
+        forceDirection = transform.position - t.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(gravSource.position, transform.position) < maxDist && grounded)
+        if (Vector3.Distance(t.position, transform.position) < maxDist && grounded)
         {
-            forceDirection = gravSource.position - transform.position;
-            transform.parent = gravSource;
-            gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
+            forceDirection = transform.position - t.position;
+            player.transform.parent = transform;
+            player.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
         }
-        if (Vector3.Distance(gravSource.position, transform.position) < maxDist && !grounded)
+        else if (Vector3.Distance(t.position, transform.position) < maxDist && !grounded)
         {
-            forceDirection = gravSource.position - transform.position;
-            transform.parent = null;
-            gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
+            forceDirection = transform.position - t.position;
+            t.parent = null;
+            player.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
+        }
+        else
+        {
+            t.parent = null;
         }
 
     }

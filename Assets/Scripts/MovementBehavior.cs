@@ -25,6 +25,11 @@ public class MovementBehavior : MonoBehaviour
         grounded = true;
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        grounded = true;
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         center.localRotation = Quaternion.Euler(0f, -8.884001f, 0f);
@@ -57,18 +62,16 @@ public class MovementBehavior : MonoBehaviour
             {
                 transform.Translate(0f, 0f, 0.1f);
             }
-            if (Input.GetKey("w") && !grounded)
+            if (Input.GetKeyDown("w") && !grounded)
             {
-                transform.parent = null;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.localRotation * Vector3.forward * flySpeed, ForceMode.Impulse);
             }
             if (Input.GetKey("s"))
             {
                 transform.Translate(0f, 0f, -0.1f);
             }
-            if (Input.GetKey("s") && !grounded)
+            if (Input.GetKeyDown("s") && !grounded)
             {
-                transform.parent = null;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.localRotation * Vector3.back * flySpeed, ForceMode.Impulse);
             }
             if (Input.GetKey("a"))
@@ -86,7 +89,6 @@ public class MovementBehavior : MonoBehaviour
             }
             if (Input.GetKeyDown("space") && !grounded)
             {
-                transform.parent = null;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.localRotation * Vector3.up * jumpSpeed, ForceMode.Impulse);
             }
             if (Input.GetKeyDown("z") && grounded)
@@ -97,7 +99,6 @@ public class MovementBehavior : MonoBehaviour
 
             if (Input.GetKeyDown("z") && !grounded)
             {
-                transform.parent = null;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.localRotation * Vector3.down * flySpeed, ForceMode.Impulse);
             }
             if (Input.mouseScrollDelta.y > 0)
