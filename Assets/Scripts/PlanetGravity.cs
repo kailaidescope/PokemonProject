@@ -26,6 +26,7 @@ public class PlanetGravity : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         grounded = false;
+        player.transform.parent = null;
     }
 
     // Start is called before the first frame update
@@ -42,6 +43,7 @@ public class PlanetGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(grounded);
         if (Vector3.Distance(transform.position, player.transform.position) < maxDist && grounded)
         {
             forceDirection = transform.position - player.transform.position;
@@ -51,12 +53,7 @@ public class PlanetGravity : MonoBehaviour
         else if (Vector3.Distance(transform.position, player.transform.position) < maxDist && !grounded)
         {
             forceDirection = transform.position - player.transform.position;
-            player.transform.parent = null;
             player.GetComponent<Rigidbody>().AddForce(forceDirection * strength, ForceMode.Acceleration);
-        }
-        else
-        {
-            player.transform.parent = null;
         }
     }
 }
