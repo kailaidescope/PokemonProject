@@ -10,12 +10,12 @@ public class PipeCounter : MonoBehaviour
     void Start()
     {
         text = gameObject.GetComponent<UnityEngine.UI.Text>();
-        text.text = PipeController.numPipes + " - Parts Collected";
+        text.text = PipeController.numPipes + " / " + SpawnPlanets.numSpawned + " - Parts Collected";
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = PipeController.numPipes + " - Parts Collected";
+        text.text = PipeController.numPipes + " / " + SpawnPlanets.numSpawned + " - Parts Collected";
     }
 }

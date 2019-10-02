@@ -12,6 +12,11 @@ public class TitleMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Home()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
+
     public void loadScene()
     {
         SceneManager.LoadScene(scene);

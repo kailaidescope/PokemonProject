@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnPlanets : MonoBehaviour
 {
 
-    public static int numSpawned = 1;
+    public static int numSpawned = 5;
     private int i = numSpawned;
     public GameObject planet;
 
