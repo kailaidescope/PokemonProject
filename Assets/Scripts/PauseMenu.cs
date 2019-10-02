@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
 
     public static bool isPaused = false;
-
+    public AudioSource source;
     public GameObject menuUI;
 
     // Start is called before the first frame update
@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        source.GetComponent<MusicController>().Clip1();
         menuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        source.GetComponent<MusicController>().Clip3();
         menuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;

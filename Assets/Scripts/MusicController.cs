@@ -15,6 +15,7 @@ public class MusicController : MonoBehaviour
     void Start()
     {
         source = gameObject.GetComponent<AudioSource>();
+        source.volume = 0.1f;
         source.clip = clip1;
         source.Play();
     }
@@ -22,7 +23,7 @@ public class MusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        /*if (Input.GetKeyDown("1"))
         {
             source.clip = clip1;
             source.Play();
@@ -37,11 +38,40 @@ public class MusicController : MonoBehaviour
             source.clip = clip3;
             source.Play();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            source.clip = clip3;
+            source.Play();
+        }
         if (Input.GetKeyDown("4"))
         {
             source.clip = clip4;
             source.loop = false;
             source.Play();
-        }
+        }*/
+    }
+
+    public void Clip1()
+    {
+        source.clip = clip1;
+        source.Play();
+    }
+
+    public void Clip2()
+    {
+        source.clip = clip2;
+        source.Play();
+    }
+
+    public void Clip3()
+    {
+        source.clip = clip3;
+        source.Play();
+    }
+
+    public void Clip4()
+    {
+        source.clip = clip4;
+        source.Play();
     }
 }

@@ -5,16 +5,17 @@ using UnityEngine;
 public class SpawnPlanets : MonoBehaviour
 {
 
-    public int numSpawned;
+    public static int numSpawned = 1;
+    private int i = numSpawned;
     public GameObject planet;
 
     // Start is called before the first frame update
     void Start()
     {
-        while(numSpawned > 0)
+        while(i > 0)
         {
             Instantiate(planet);
-            numSpawned--;
+            i--;
         }
     }
 

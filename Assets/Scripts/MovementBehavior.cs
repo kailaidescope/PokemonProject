@@ -10,14 +10,17 @@ public class MovementBehavior : MonoBehaviour
     public float flySpeed;
     public float jumpSpeed;
     public Transform center;
+    public int numPipes = 0;
 
     private Camera cam;
     private bool grounded;
+    private Rigidbody rb;
 
 
     private void Start()
     {
         cam = gameObject.GetComponentInChildren<Camera>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -41,6 +44,11 @@ public class MovementBehavior : MonoBehaviour
     {
         if (PauseMenu.isPaused == false)
         {
+            if (!grounded)
+            {
+                rb.angularVelocity = new Vector3(0f, 0f, 0f);
+            }
+
             transform.Rotate(0f, Input.GetAxis("Mouse X") * RotationSpeed, 0f);
             if (grounded)
             {
