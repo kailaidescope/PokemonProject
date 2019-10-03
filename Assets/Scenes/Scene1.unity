@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.28237274, g: 0.59498733, b: 1.0877365, a: 1}
+  m_IndirectSpecularColor: {r: 0.28253558, g: 0.59502, b: 1.0883715, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3581,6 +3581,8 @@ MonoBehaviour:
   m_Text: '-W,A,S,D to move
 
     -Q,E to roll in space
+
+    -Space to jump, Z to go down
 
     -Collect parts to fix spaceship
 

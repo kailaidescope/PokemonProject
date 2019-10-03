@@ -43,7 +43,7 @@ public class PlanetGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(grounded);
+        //Debug.Log(grounded);
         if (Vector3.Distance(transform.position, player.transform.position) < maxDist && grounded)
         {
             forceDirection = transform.position - player.transform.position;
